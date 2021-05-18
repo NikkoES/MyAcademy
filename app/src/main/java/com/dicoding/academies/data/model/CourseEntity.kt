@@ -1,4 +1,4 @@
-package com.dicoding.academies.data
+package com.dicoding.academies.data.model
 
 data class CourseEntity(
         var courseId: String,

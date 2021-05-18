@@ -3,7 +3,7 @@ package com.dicoding.academies.ui.reader.list
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.dicoding.academies.data.ModuleEntity
+import com.dicoding.academies.data.model.ModuleEntity
 import com.dicoding.academies.databinding.ItemsModuleListCustomBinding
 import java.util.*
 

@@ -10,11 +10,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.request.RequestOptions
 import com.dicoding.academies.R
-import com.dicoding.academies.data.CourseEntity
+import com.dicoding.academies.data.model.CourseEntity
 import com.dicoding.academies.databinding.ActivityDetailCourseBinding
 import com.dicoding.academies.databinding.ContentDetailCourseBinding
 import com.dicoding.academies.ui.reader.CourseReaderActivity
-import com.dicoding.academies.utils.DataDummy
+import com.dicoding.academies.viewmodel.ViewModelFactory
 
 class DetailCourseActivity : AppCompatActivity() {
 
@@ -37,7 +37,8 @@ class DetailCourseActivity : AppCompatActivity() {
 
         val adapter = DetailCourseAdapter()
 
-        val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[DetailCourseViewModel::class.java]
+        val factory = ViewModelFactory.getInstance(this)
+        val viewModel = ViewModelProvider(this, factory)[DetailCourseViewModel::class.java]
 
         val extras = intent.extras
         if (extras != null) {

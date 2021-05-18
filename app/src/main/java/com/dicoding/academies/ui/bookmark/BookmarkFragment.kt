@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dicoding.academies.R
-import com.dicoding.academies.data.CourseEntity
+import com.dicoding.academies.data.model.CourseEntity
 import com.dicoding.academies.databinding.FragmentBookmarkBinding
-import com.dicoding.academies.utils.DataDummy
+import com.dicoding.academies.viewmodel.ViewModelFactory
 
 
 /**
@@ -32,7 +32,8 @@ class BookmarkFragment : Fragment(), BookmarkFragmentCallback {
         super.onViewCreated(view, savedInstanceState)
 
         if (activity != null) {
-            val viewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory())[BookmarkViewModel::class.java]
+            val factory = ViewModelFactory.getInstance(requireActivity())
+            val viewModel = ViewModelProvider(this, factory)[BookmarkViewModel::class.java]
             val courses = viewModel.getBookmarks()
 
             val adapter = BookmarkAdapter(this)
