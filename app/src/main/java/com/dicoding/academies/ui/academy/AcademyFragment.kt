@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dicoding.academies.data.model.CourseEntity
 import com.dicoding.academies.databinding.FragmentAcademyBinding
 import com.dicoding.academies.utils.DataDummy
 import com.dicoding.academies.viewmodel.ViewModelFactory
@@ -29,10 +31,16 @@ class AcademyFragment : Fragment() {
         if (activity != null) {
             val factory = ViewModelFactory.getInstance(requireActivity())
             val viewModel = ViewModelProvider(this, factory)[AcademyViewModel::class.java]
-            val courses = viewModel.getCourses()
 
             val academyAdapter = AcademyAdapter()
-            academyAdapter.setCourses(courses)
+
+            fragmentAcademyBinding.progressBar.visibility = View.VISIBLE
+            viewModel.getCourses().observe(this,
+                Observer<List<CourseEntity>> {
+                    fragmentAcademyBinding.progressBar.visibility = View.GONE
+                    academyAdapter.setCourses(it)
+                    academyAdapter.notifyDataSetChanged()
+                })
 
             with(fragmentAcademyBinding.rvAcademy) {
                 layoutManager = LinearLayoutManager(context)
