@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.dicoding.academies.R
-import com.dicoding.academies.data.CourseEntity
+import com.dicoding.academies.data.model.CourseEntity
 import com.dicoding.academies.databinding.ItemsBookmarkBinding
 import com.dicoding.academies.ui.detail.DetailCourseActivity
 import java.util.*

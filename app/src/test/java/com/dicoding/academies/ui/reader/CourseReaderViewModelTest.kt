@@ -1,6 +1,6 @@
 package com.dicoding.academies.ui.reader
 
-import com.dicoding.academies.data.ContentEntity
+import com.dicoding.academies.data.model.ContentEntity
 import com.dicoding.academies.utils.DataDummy
 import junit.framework.TestCase.assertEquals
 import junit.framework.TestCase.assertNotNull
